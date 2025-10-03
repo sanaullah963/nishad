@@ -47,7 +47,7 @@ export default function FAQ() {
   };
 
   return (
-    <div className="max-w-md mx-auto w-full shadow-lg rounded-md p-1 ">
+    <div className="max-w-md mx-auto w-full bg-white shadow-lg rounded-md p-1 ">
       
       <div className="space-y-3 ">
         {faqs.map((faq, index) => (
