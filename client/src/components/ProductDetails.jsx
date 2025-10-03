@@ -76,13 +76,13 @@ function ProductDetails({ params }) {
       <div>
         <div className="my-5 border border-gray-400 rounded-lg text-black">
           <p className="capitalize bg-gray-200 rounded-t-lg ps-2 py-2 text-xl font-[500] m">
-            অর্ডার করতে নাম ঠিকানা লিখুন
+            অর্ডার করতে নাম ঠিকানা লিখুন :
           </p>
           <div className=" ">
             <form action="">
               <input
                 type="text"
-                className=" border border-gray-400 rounded-md w-full my-1 p-1 capitalize text-white"
+                className=" border border-gray-400 rounded-md w-full my-1 p-1 capitalize text-gray-400 bg-white"
                 placeholder="নাম "
               />
               <input
