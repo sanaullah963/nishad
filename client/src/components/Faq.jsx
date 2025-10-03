@@ -47,14 +47,14 @@ export default function FAQ() {
   };
 
   return (
-    <div className="max-w-md mx-auto  bg-white shadow-lg rounded-md p-1">
+    <div className="max-w-md mx-auto w-full shadow-lg rounded-md p-1 ">
       
-      <div className="space-y-3">
+      <div className="space-y-3 ">
         {faqs.map((faq, index) => (
-          <div key={index} className="border rounded-lg">
+          <div key={index} className="border rounded-lg ">
             <button
               onClick={() => toggleFAQ(index)}
-              className="w-full flex justify-between  items-center px-4 py-1 text-left font-medium"
+              className="w-full flex justify-between  items-center px-4 py-1 text-left font-medium text-gray-700"
             >
               {faq.question}
               <span className="ml-2 ">{openIndex === index ? "−" : "+"}</span>
