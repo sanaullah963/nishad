@@ -38,6 +38,14 @@ export default function FAQ() {
       question: "কত দিন খেতে হবে?",
       answer: "১ জনের জন্য ১ মাস জথেস্ট।",
     },
+    {
+      question: "১ কৌটায় কতপিস ক্যালসিয়াম?",
+      answer: "৩০ পিস",
+    },
+    {
+      question: "সব কিছু কি একসাথে ৬৯৯ টাকা?",
+      answer: "হ্যা!",
+    },
   ];
 
   const [openIndex, setOpenIndex] = useState(null);
