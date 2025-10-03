@@ -82,18 +82,18 @@ function ProductDetails({ params }) {
             <form action="">
               <input
                 type="text"
-                className=" border border-gray-400 rounded-md w-full my-1 p-1 capitalize"
+                className=" border border-gray-400 rounded-md w-full my-1 p-1 capitalize text-black"
                 placeholder="নাম "
               />
               <input
                 type="text"
-                className=" border border-gray-400 rounded-md w-full my-1 p-1"
+                className=" border border-gray-400 rounded-md w-full my-1 p-1 text-black"
                 placeholder="মোবাইল "
               />
               <textarea
                 name="address"
                 id="address"
-                className=" border border-gray-400 rounded-md w-full min-h-24 h-auto p-1 my-2"
+                className=" border border-gray-400 rounded-md w-full min-h-24 h-auto p-1 my-2 text-black"
                 placeholder="জেলা,থানা এবং যেখান থেকে রিসিভ করবেন তা লিখুন"
               ></textarea>
               <div className=" bg-green-600 text-white text-center py-2">
