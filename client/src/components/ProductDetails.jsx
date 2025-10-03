@@ -111,7 +111,7 @@ function ProductDetails({ params }) {
                 >
                   <FaMinus />
                 </button>
-                <span className="text-lg"> {count} প্যাকেজ </span>
+                <span className="text-lg text-gray-500"> {count} প্যাকেজ </span>
 
                 <button
                   onClick={plusCounter}
