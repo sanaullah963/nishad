@@ -54,13 +54,13 @@ export default function FAQ() {
           <div key={index} className="border rounded-lg ">
             <button
               onClick={() => toggleFAQ(index)}
-              className="w-full flex justify-between  items-center px-4 py-1 text-left font-medium text-gray-700"
+              className="w-full flex justify-between  items-center px-4 py-1 text-left font-medium text-gray-800  "
             >
               {faq.question}
               <span className="ml-2 ">{openIndex === index ? "−" : "+"}</span>
             </button>
             {openIndex === index && (
-              <div className="px-2 text-md pb-3 text-gray-600">{faq.answer}</div>
+              <div className="px-2 text-md pb-3 text-gray-500">{faq.answer}</div>
             )}
           </div>
         ))}
