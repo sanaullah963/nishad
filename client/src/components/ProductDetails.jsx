@@ -223,7 +223,7 @@ function ProductDetails({ params }) {
         {/*--------product description */}
         <div className="border-[4px] border-gray-400 rounded-md p-2 shadow-lg shadow-gray-400 my-10">
           <div className="w-full lg:w-[25%] border border-gray-200 rounded-lg">
-            <p className="capitalize bg-gray-200 rounded-t-lg ps-2 py-2 text-xl font-[500] mb-2">
+            <p className="capitalize bg-gray-400 rounded-t-lg ps-2 py-2 text-xl  font-[500] mb-2">
               কিছু প্রশ্ন ও উত্তর :
             </p>
             {/* delivery details */}
