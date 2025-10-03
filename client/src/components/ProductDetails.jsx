@@ -180,7 +180,7 @@ function ProductDetails({ params }) {
             ))}
           </div>
           {/*--------center product detaisl */}
-          <div className="lg:flex-1 mx-0 bg-white">
+          <div className="lg:flex-1 mx-0 ">
             {/* title */}
             <p className="text-[15px] capitalize my-2">
               দীর্ঘ সময় মিলনের একমাত্র আস্থা
