@@ -63,18 +63,18 @@ function ProductDetails({ params }) {
   };
   // wp btn handel
   const WphandelBtn = () => {
-    window.open("https://wa.me/01886362484");
+    window.open("https://wa.me/8801886362484");
   };
   // messanger btn handel
   const messhandelBtn = () => {
-    window.open("https://m.me/61579149196874");
+    window.open("https://m.me/id=61579149196874");
   };
 
   // order component
   const Oeder = () => {
     return (
       <div>
-        <div className="my-5 border border-gray-400 rounded-lg">
+        <div className="my-5 border border-gray-400 rounded-lg text-black">
           <p className="capitalize bg-gray-200 rounded-t-lg ps-2 py-2 text-xl font-[500] m">
             অর্ডার করতে নাম ঠিকানা লিখুন
           </p>
