@@ -98,13 +98,13 @@ function ProductDetails({ params }) {
         compo:"M3"
       };
       
-      if (e.target.value.length < 11 || e.target.value.length > 11) {
+      if (data.number.length < 11 || data.number.length > 11) {
         toast.error("নাম্বর ১১ ডিজিট হতে হবে");
       }
       else if(data.address.length < 10){
         toast.error("ঠিকানা ভালোভাবে লিখুন");
       }
-      if (data.number.length == 11) {
+      else if (data.number.length == 11) {
       toast.success("অর্ডার সফল হয়েছে");
       toast.success("আপনাকে কল করা হবে");
       toast.success(data.number);
@@ -117,8 +117,8 @@ function ProductDetails({ params }) {
         //   console.log(error);
         // }
       };
-      }
       senddata();
+      }
       
 
      
