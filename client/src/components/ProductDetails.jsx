@@ -7,16 +7,14 @@ import { ToastContainer, toast } from "react-toastify";
 import { TbCurrencyTaka } from "react-icons/tb";
 import { FaMinus } from "react-icons/fa6";
 import { FaPlus } from "react-icons/fa6";
-
 import { IoMdShare } from "react-icons/io";
-
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 
 import p1 from "@/inm/p1.jpg";
 import { FaSquareWhatsapp } from "react-icons/fa6";
 import { FaFacebookMessenger } from "react-icons/fa6";
-import Container from "./Container";
+
 import FAQ from "./Faq";
 function ProductDetails({ params }) {
   const api = process.env.NEXT_PUBLIC_API_URL;
