@@ -1,44 +1,26 @@
 "use client";
 import React, { useEffect, useState } from "react";
-
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import { TbCurrencyTaka } from "react-icons/tb";
 import { FaMinus } from "react-icons/fa6";
 import { FaPlus } from "react-icons/fa6";
-// import freeDelivery from "@/image/free_delivery.svg";
-import { IoMdHeartEmpty } from "react-icons/io";
+
 import { IoMdShare } from "react-icons/io";
-import { HiOutlineCash } from "react-icons/hi";
-import { TbTruckDelivery } from "react-icons/tb";
-import { TbTruckReturn } from "react-icons/tb";
-import { FaShield } from "react-icons/fa6";
+
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-// import ProductContainer from "./ProductContainer";
-// import ProductCard from "./ProductCard";
-// import Review from "./Review";
-// import ProductDetailHeadding from "./ProductDetailHeadding";
-// import LoadingSpinner from "../LoadingSpinner";
-// import { adminArray } from "@/constant/data";
-// import p1 from "@/inm/p1.webp"
+
 import p1 from "@/inm/p1.jpg";
 import { FaSquareWhatsapp } from "react-icons/fa6";
 import { FaFacebookMessenger } from "react-icons/fa6";
 import Container from "./Container";
 import FAQ from "./Faq";
 function ProductDetails({ params }) {
+  const api = process.env.NEXT_PUBLIC_API_URL;
   const [count, setCount] = useState(1);
-  const [product, setProduct] = useState({});
-  const [similarProduct, setSimilarProduct] = useState([]);
-  const [cart, setCart] = useState([]);
-  const [cartLodder, setCartLodder] = useState(false);
-  const [isClient, setIsClient] = useState(false);
-
-  // access token
 
   const arr = [
     "🔥দাম মাত্র ৬৯৯ টাকা।",
@@ -85,47 +67,53 @@ function ProductDetails({ params }) {
     window.open("https://m.me/id=61579149196874");
   };
 
-  // order component
+  // send data
+  const sendData = async (data) => {
+    try {
+      return await axios.post(`${api}/order`, data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  //--------------------order function-------------------
   const Oeder = () => {
     const [sms, setSms] = useState("");
     // handel order
-    const handelSubmit = (e) => {
+    const handelSubmit = async (e) => {
       e.preventDefault();
       const data = {
         name: e.target.name.value,
         number: e.target.number.value,
         address: e.target.address.value,
-        compo:"M3"
+        combo: "M3",
+        quantity: count,
+        date: new Date().toLocaleString(),
       };
-      
-      if (data.number.length < 11 || data.number.length > 11) {
-        toast.error("নাম্বর ১১ ডিজিট হতে হবে");
-      }
-      else if(data.address.length < 10){
-        toast.error("ঠিকানা ভালোভাবে লিখুন");
-      }
-      else if (data.number.length == 11) {
-      toast.success("অর্ডার সফল হয়েছে");
-      toast.success("আপনাকে কল করা হবে");
-      toast.success(data.number);
-      console.log(data);
-      const senddata = async () => {
-        // try {
-        //   const res = await axios.post("", data);
-        //   console.log(res);
-        // } catch (error) {
-        //   console.log(error);
-        // }
-      };
-      senddata();
-      }
-      
 
-     
+      if (
+        data.number.length < 11 ||
+        data.number.length > 11 ||
+        data.number.length == 0
+      ) {
+        toast.error("নাম্বর ১১ ডিজিট হতে হবে");
+      } else if (data.address.length < 10) {
+        toast.error("ঠিকানা ভালোভাবে লিখুন");
+      }//if success
+       else if (data.number.length == 11) {
+        const res = await sendData(data);
+        toast.success("অর্ডার সফল হয়েছে");
+        if(res.status==200){
+          toast.success("আপনাকে কল করা হবে");
+        }
+        else{
+          toast.error("কোন একটা সমস্যা হয়েছে");
+          toast.error("01886362484 কল করুন");
+        }
+
+      }
     };
     // handel number test
     const numberTesthandeler = (e) => {
-      console.log(e.target.value.length);
       if (e.target.value.length < 11 || e.target.value.length > 11) {
         setSms("নাম্বর ১১ ডিজিট হতে হবে");
       } else {
