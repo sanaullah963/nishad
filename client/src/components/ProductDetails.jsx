@@ -95,7 +95,20 @@ function ProductDetails({ params }) {
         name: e.target.name.value,
         number: e.target.number.value,
         address: e.target.address.value,
+        compo:"M3"
       };
+      
+      if (e.target.value.length < 11 || e.target.value.length > 11) {
+        toast.error("নাম্বর ১১ ডিজিট হতে হবে");
+      }
+      else if(data.address.length < 10){
+        toast.error("ঠিকানা ভালোভাবে লিখুন");
+      }
+      if (data.number.length == 11) {
+      toast.success("অর্ডার সফল হয়েছে");
+      toast.success("আপনাকে কল করা হবে");
+      toast.success(data.number);
+      console.log(data);
       const senddata = async () => {
         // try {
         //   const res = await axios.post("", data);
@@ -104,16 +117,11 @@ function ProductDetails({ params }) {
         //   console.log(error);
         // }
       };
-      if (data.number.length == 11) {
-      toast.success("অর্ডার সফল হয়েছে");
-      toast.success("আপনাকে কল করা হবে");
-      toast.success(data.number);
-      console.log(data);
       }
-
+      senddata();
       
 
-      senddata();
+     
     };
     // handel number test
     const numberTesthandeler = (e) => {
