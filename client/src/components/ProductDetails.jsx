@@ -55,7 +55,7 @@ function ProductDetails({ params }) {
 
     "💪ক্যালসিয়াম শরীরের ঘাটতি পূরণ করবে ও সহ*বাসের পর ক্লান্তি দূর করবে।",
     "💪ক্যালসিয়ামে রয়েছে বাদাম,দুধ সহ আর অনেক গুরুত্বপূর্ন উপাদান।",
-    "হারের ব্যাথা কমাবে।",
+    "যা হারের ব্যাথা কমাবে।",
     "----",
     "💊৩০ পিস ট্যাবলেট (এক মাসের পূর্ণ কোর্স)",
     "🆓সাথে ১ কৌটা ক্যালসিয়াম ফ্রি।",
@@ -87,23 +87,70 @@ function ProductDetails({ params }) {
 
   // order component
   const Oeder = () => {
+    const [sms, setSms] = useState("");
+    // handel order
+    const handelSubmit = (e) => {
+      e.preventDefault();
+      const data = {
+        name: e.target.name.value,
+        number: e.target.number.value,
+        address: e.target.address.value,
+      };
+      const senddata = async () => {
+        // try {
+        //   const res = await axios.post("", data);
+        //   console.log(res);
+        // } catch (error) {
+        //   console.log(error);
+        // }
+      };
+      if (data.number.length == 11) {
+      toast.success("অর্ডার সফল হয়েছে");
+      toast.success("আপনাকে কল করা হবে");
+      toast.success(data.number);
+      console.log(data);
+      }
+
+      
+
+      senddata();
+    };
+    // handel number test
+    const numberTesthandeler = (e) => {
+      console.log(e.target.value.length);
+      if (e.target.value.length < 11 || e.target.value.length > 11) {
+        setSms("নাম্বর ১১ ডিজিট হতে হবে");
+      } else {
+        setSms("");
+      }
+    };
     return (
       <div>
-        <div className="my-5 border border-gray-400 rounded-lg text-black">
+        <form
+          action=""
+          onSubmit={handelSubmit}
+          className="my-5 border border-gray-400 rounded-lg text-black"
+        >
           <p className="capitalize bg-gray-200 rounded-t-lg ps-2 py-2 text-xl font-[500] m">
             অর্ডার করতে নাম ঠিকানা লিখুন :
           </p>
           <div className=" ">
-            <form action="">
+            <div>
               <input
                 type="text"
-                className=" border border-gray-400 rounded-md w-full my-1 p-1 capitalize text-gray-600 bg-white"
+                className="mb-2 border border-gray-400 rounded-md w-full my-1 p-1 capitalize text-gray-600 bg-white"
                 placeholder="নাম "
+                name="name"
               />
+              <label htmlFor="number" className="text-red-500">
+                {sms}
+              </label>
               <input
                 type="text"
                 className=" border border-gray-400 rounded-md w-full my-1 p-1 text-gray-600 bg-white"
                 placeholder="মোবাইল "
+                name="number"
+                onKeyUp={numberTesthandeler}
               />
               <textarea
                 name="address"
@@ -136,12 +183,13 @@ function ProductDetails({ params }) {
                   <FaPlus />
                 </button>
               </div>
-            </form>
+            </div>
           </div>
           {/* button */}
           <div className="flex gap-1">
             {/* call to action button */}
             <button
+              type="submit"
               className={
                 "bg-sky-500 hover:bg-sky-600 text-white capitalize h-10  flex-1 text-lg"
               }
@@ -163,7 +211,7 @@ function ProductDetails({ params }) {
               <FaFacebookMessenger />
             </button>
           </div>
-        </div>
+        </form>
       </div>
     );
   };
